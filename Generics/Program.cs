@@ -11,6 +11,15 @@ sehirler2.Add("İstanbul");
 sehirler2.Add("Ankara");
 Console.WriteLine(sehirler2.Count);
 
+//indexing
+sehirler2[0] = "Karaçor";
+
+//tüm elemanları yazdırma
+foreach(var item in sehirler2.Items)
+{
+    Console.WriteLine(item);
+}
+
 class MyList<T> //Generic Class
 {
     T[] _array;
@@ -33,4 +42,26 @@ class MyList<T> //Generic Class
     }
 
     public int Count { get { return _array.Length; } }  // Array in uzunluğunu döndüren fonksiyonumuz.
+
+
+    public T this[int index] 
+    {
+        get
+        {
+            return _array[index]; //hangi index deki değeri okumamızı sağlayan kod.
+        }
+
+        set
+        {
+            _array[index] = value; //hangi index deki değeri değiştirmemizi sağlayan kod.
+        }
+    }
+
+    public T[] Items // _array imizdeki tüm elemanları bize getirir.
+    {
+        get
+        {
+            return _array;
+        }
+    }
 }
